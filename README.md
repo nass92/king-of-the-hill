@@ -74,20 +74,20 @@ Dans cette fonction, nous avons ensuite une condition If/else. Elle contient la 
  - On décremente les gains du vainqueur de la balance du jeu
  - On envoie au King ces gains. 
     
-    uint256 amountWinner = (_bet - ((_bet * 10) / 100)); 
-    _bet -= amountWinner; 
-    payable(_TheKing).sendValue(amountWinner); 
+      uint256 amountWinner = (_bet - ((_bet * 10) / 100)); 
+      _bet -= amountWinner; 
+      payable(_TheKing).sendValue(amountWinner); 
 
 - Calcul du surplus envoyé par le nouveau joueur; (msg.value = montant envoyer par le joueur qui lance le nouveau tour)
 - On incrémente le pot (_bet) du montant envoyer;
 - On décremente le pot (_bet) du surplus calculé précedement. 
 - On Renvoie le surplus à son propriétaire. 
 
-    uint256 extra = msg.value - (_bet * 2); 
-    _bet += msg.value;
-    _bet -= extra;
-    payable(msg.sender).sendValue(extra); 
-    } 
+      uint256 extra = msg.value - (_bet * 2); 
+      _bet += msg.value;
+      _bet -= extra;
+      payable(msg.sender).sendValue(extra); 
+      } 
 
 Tant que la partie (tour) n'est pas fini, alors on accepte tout parie. Et on incremente le pot (_bet) de la mise (msg.value) du joueur.
 
