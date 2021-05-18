@@ -13,7 +13,7 @@ Jean adresse : 0xe5F6bABf4600E5c5C2Ff3C6400e5f8c16A0BB7AB ===> King du 1er tour.
 ewe adresse :  0xc945d3B93b056507CB79a9DcD2D143EA736f75A8 ==> 1er joueur du tour suivant
 
 TestNet : Rinkeby.
-## Énoncer du jeu: 
+## Énoncer du jeu : 
 
 king of the hill est un jeu où les joueurs doivent acquérir le contenu d'un pot qui contient de l'ether, en envoyant le double de ce que contient le pot au moment de la transaction, dans le temps impartit. La limitte de temps  est définie au préalable par le maitre du jeu.  Une fois le temps arrivée à son terme, le Roi (vainqueur) reçoit le pot une fois le tour suivant (partie) lancée. 
 
@@ -29,7 +29,7 @@ Le King recoit alors ces gains une fois le tour suivant lancée.
 Si le 1er joueur du tour suivant, envoie un surplus, alors il reçoit automatiquement le surplus. 
 
 ## Explication de certaine partie du code : 
-### `Le Constructor`: 
+### `Le Constructor :` 
 Le code se trouvant dans le constructore est traité uniquement lors du déploiement du contract. Il sert de base de fonctionnement du contract. 
 Lors du déploiement du contract, le owner devra définir le montant de la taxe qu'il décide d'instaurer; ainsi qu'aux bout de combien de difference de block, avec celle de la derniere transaction (_currentBlock), le tour se termine (_finalBlock). 
 
@@ -42,7 +42,7 @@ Lors du déploiement du contract, le owner devra définir le montant de la taxe 
       }
 
 
-### `Fonction ToBeTheKing`:
+### `Fonction ToBeTheKing :`
 Ce smart contract détient une fonction principal, qui regroupe presque toutes les règles du jeu.
 La fonction ToBeTheKing peut-être appelée par n'importe qui, tant qu'il respect 2 conditions:
  - 1er condition: le joueur doit misé (envoyer)  double du pot (_bet) actuel.
@@ -102,7 +102,7 @@ Enfin, à chaque fois que la fonction est appélée, alors on met à jour, le no
     }
 
 
-### `Fonction WithdrawGain`: 
+### `Fonction WithdrawGain :` 
 Cette fonction permet au maitre du jeu (_owner) de retirer, lorsqu'il le désire, ces profits. 
 
 
@@ -114,7 +114,7 @@ Cette fonction permet au maitre du jeu (_owner) de retirer, lorsqu'il le désire
     }
 
 
-### `Les Fonctions View`: 
+### `Les Fonctions View :` 
 Les fonctions view servent à lire des informations inscrit sur la blockchain. 
 
 La fonction tax permet de lire la taxe actuel appliqué par le maitre du jeu (_owner), pour ce tour. 
