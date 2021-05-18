@@ -48,14 +48,11 @@ La fonction ToBeTheKing peut-être appelée par n'importe qui, tant qu'il respec
  - 1er condition: le joueur doit misé (envoyer)  double du pot (_bet) actuel.
  - 2eme condition: Ne peut miser le joueur qui est actuellement le King.  
 
-      function firstPlc(uint256 currentBet) public payable {
-        require(
-            currentBet == (_bet * 2),
-            "KingHill: your bet must be egual to  muliply the balance * 2."
-        ); 
-      require(msg.sender != _TheKing, "KingHill: you are alreday the king"); 
+       function firstPlc(uint256 currentBet) public payable {
+    require(currentBet == (_bet * 2),"KingHill: your bet must be egual to  muliply the balance * 2."); 
+    require(msg.sender != _TheKing, "KingHill: you are alreday the king"); 
 
-  
+
 Dans cette fonction, nous avons ensuite une condition If/else. Elle contient la condition pour remporter la partie. Si le block actuel - (moins) le numéro du block à laquelle où le dernier joueur est devenue king, est > (supérieur) au block final (le numéro du block à laquelle où le dernier joueur est devenue king + le nombre de block définit par le maitre du jeu(owner)); alors : 
   
  - Calcul le montant de la taxe (fee);
