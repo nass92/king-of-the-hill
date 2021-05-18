@@ -62,9 +62,9 @@ Dans cette fonction, nous avons ensuite une condition If/else. Elle contient la 
   - On retire le montant de la taxe du pot (_bet). 
   - On envoie le montant de la taxe prélevé à la balance du Owner (_gainOwner)
 
-    uint256 fee = (_bet * 2) / 100; 
-            _bet -= fee;
-            _gainOwner += fee;
+      uint256 fee = (_bet * 2) / 100; 
+      _bet -= fee;
+      _gainOwner += fee;
 
 
  
@@ -76,7 +76,7 @@ Dans cette fonction, nous avons ensuite une condition If/else. Elle contient la 
     
       uint256 amountWinner = (_bet - ((_bet * 10) / 100)); 
       _bet -= amountWinner; 
-      payable(_TheKing).sendValue(amountWinner); 
+      payable(_TheKing).sendValue(amountWinner); }
 
 - Calcul du surplus envoyé par le nouveau joueur; (msg.value = montant envoyer par le joueur qui lance le nouveau tour)
 - On incrémente le pot (_bet) du montant envoyer;
