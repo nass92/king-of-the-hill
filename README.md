@@ -1,5 +1,5 @@
 # King-of-the-Hill Game
-  markdown ![GitHub Logo](King.png)
+![King](King.png)
 
               
 l'adresse du contract : 0x98B384C8971c85c1557eC83B9F585968aAD3DB42 
