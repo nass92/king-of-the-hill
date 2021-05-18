@@ -20,7 +20,7 @@ king of the hill est un jeu où les joueurs doivent acquérir le contenu d'un po
 ## Les régles et conditions du jeu : 
 
 Le joueur qui envoie le double du pot actuel devient le King.
-A chaque fois qu' un joueur mise, la durée de la partie est renouvelée. 
+A chaque fois qu'un joueur mise, la durée de la partie est renouvelée. 
 Si le King arrive à garder sa couronne pendant un certain nombre de blocs alors : 
   - 10% sont envoyés à l'owner du smart contract.
   - Le King gagne 90% du reste du pot.
@@ -43,7 +43,7 @@ Lors du déploiement du contract, le owner devra définir le montant de la taxe 
 
 
 ### `Fonction ToBeTheKing`:
-Ce smart contract détient une fonction principale, qui regroupe presque toutes les règles du jeu.
+Ce smart contract détient une fonction principal, qui regroupe presque toutes les règles du jeu.
 La fonction ToBeTheKing peut-être appelée par n'importe qui, tant qu'il respect 2 conditions:
  - 1er condition: le joueur doit misé (envoyer)  double du pot (_bet) actuel.
  - 2eme condition: Ne peut miser le joueur qui est actuellement le King.  
@@ -58,9 +58,9 @@ La fonction ToBeTheKing peut-être appelée par n'importe qui, tant qu'il respec
   
 Dans cette fonction, nous avons ensuite une condition If/else. Elle contient la condition pour remporter la partie. Si le block actuel - (moins) le numéro du block à laquelle où le dernier joueur est devenue king, est > (supérieur) au block final (le numéro du block à laquelle où le dernier joueur est devenue king + le nombre de block définit par le maitre du jeu(owner)); alors : 
   
-  -  Calcul le montant de la taxe (fee);
+  - Calcul le montant de la taxe (fee);
   - On retire le montant de la taxe du pot (_bet). 
-  -  on envoie le montant de la taxe prélevé à la balance du Owner (_gainOwner)
+  - On envoie le montant de la taxe prélevé à la balance du Owner (_gainOwner)
 
     uint256 fee = (_bet * 2) / 100; 
             _bet -= fee;
@@ -69,7 +69,7 @@ Dans cette fonction, nous avons ensuite une condition If/else. Elle contient la 
 
  
 
- - On calcule le montant à envoyer au King (soit 90% de la balance; le reste pour le prochain tour);
+ - On calcul le montant à envoyer au King (soit 90% de la balance; le reste pour le prochain tour);
  - On décremente les gains du vainqueur de la balance du jeu;
  - On décremente les gains du vainqueur de la balance du jeu
  - On envoie au King ces gains. 
