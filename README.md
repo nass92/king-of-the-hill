@@ -164,6 +164,6 @@ La fonction TimeOut permet de lire si le tour est fini (true) ou toujours en cou
     function TimeOut() public view returns (bool) {
       return (block.number - _currentBlock) > _finalBlock ? true : false;
     }
-}
+
 
 
