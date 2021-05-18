@@ -89,7 +89,7 @@ Dans cette fonction, nous avons ensuite une condition If/else. Elle contient la 
 Tant que la partie (tour) n'est pas fini, alors on accepte tout parie. Et on incremente le pot (_bet) de la mise (msg.value) du joueur.
 
     else {
-            _bet += msg.value; // incremente la balance du jeu a chque envoie d'une mise.
+            _bet += msg.value; // incremente la balance du jeu à chaque envoie d'une mise.
         }
 
 Enfin, à chaque fois que la fonction est appélée, alors on met à jour, le nouveau King, et, la durée de la partie (_currentBlock)  
