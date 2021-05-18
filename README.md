@@ -2,10 +2,10 @@
 ![King](King.jpg)
 
               
-l'adresse du contract : 0x98B384C8971c85c1557eC83B9F585968aAD3DB42 
+L'adresse du contract : 0x98B384C8971c85c1557eC83B9F585968aAD3DB42 
 
 Bob adresse : 0xe5F6bABf4600E5c5C2Ff3C6400e5f8c16A0BB7AB  ===> 1er joeur a jouer aux 1er tour. 
-alice addresse : 0xc0f851203ac00f85893Af5207234755035e53b31 ===> Owner du contract. 
+Alice adresse : 0xc0f851203ac00f85893Af5207234755035e53b31 ===> Owner du contract. 
 Jean adresse : 0xe5F6bABf4600E5c5C2Ff3C6400e5f8c16A0BB7AB ===> King du 1er tour.
 ewe adresse :  0xc945d3B93b056507CB79a9DcD2D143EA736f75A8 ==> 1er joeur du tour suivant
 
