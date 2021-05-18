@@ -53,14 +53,14 @@ La fonction ToBeTheKing peut-être appelée par n'importe qui, tant qu'il respec
             currentBet == (_bet * 2),
             "KingHill: your bet must be egual to  muliply the balance * 2."
         ); 
-        require(msg.sender != _TheKing, "KingHill: you are alreday the king"); 
+      require(msg.sender != _TheKing, "KingHill: you are alreday the king"); 
 
   
 Dans cette fonction, nous avons ensuite une condition If/else. Elle contient la condition pour remporter la partie. Si le block actuel - (moins) le numéro du block à laquelle où le dernier joueur est devenue king, est > (supérieur) au block final (le numéro du block à laquelle où le dernier joueur est devenue king + le nombre de block définit par le maitre du jeu(owner)); alors : 
   
-  - Calcul le montant de la taxe (fee);
-  - On retire le montant de la taxe du pot (_bet). 
-  - On envoie le montant de la taxe prélevé à la balance du Owner (_gainOwner)
+ - Calcul le montant de la taxe (fee);
+ - On retire le montant de la taxe du pot (_bet). 
+ - On envoie le montant de la taxe prélevé à la balance du Owner (_gainOwner)
 
        uint256 fee = (_bet * 2) / 100; 
        _bet -= fee;
