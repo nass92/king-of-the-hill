@@ -115,7 +115,7 @@ Cette fonction permet au maitre du jeu (_owner) de retirer, lorsqu'il le désire
 
 
 ### `Les Fonctions View`: 
-Les fonctions view servent à lire des informations sur la blockchain. 
+Les fonctions view servent à lire des informations inscrit sur la blockchain. 
 
 La fonction tax permet de lire la taxe actuel appliqué par le maitre du jeu (_owner), pour ce tour. 
 
@@ -124,14 +124,14 @@ La fonction tax permet de lire la taxe actuel appliqué par le maitre du jeu (_o
     }
 
 
-La Fonction _bet permet de lire la balance du pot (_bet), afin de connaitre le montant à miser. 
+La fonction _bet permet de lire la balance du pot (_bet), afin de connaitre le montant à miser. 
 
     function bet() public view returns (uint256) {
         return _bet;
     }
 
 
-La Fonction TheKing permet de lire l'adresse du king (gagnant) du tour actuel.
+La fonction TheKing permet de lire l'adresse du king (gagnant) du tour actuel.
 
     function TheKing() public view returns (address) {
         return _TheKing;
