@@ -4,13 +4,13 @@
               
 L'adresse du contract : 0x98B384C8971c85c1557eC83B9F585968aAD3DB42
 
-Bob adresse : 0xe5F6bABf4600E5c5C2Ff3C6400e5f8c16A0BB7AB  ===> 1er joeur a jouer aux 1er tour. 
+Bob adresse : 0xe5F6bABf4600E5c5C2Ff3C6400e5f8c16A0BB7AB  ===> 1er joueur a jouer aux 1er tour. 
 
 Alice adresse : 0xc0f851203ac00f85893Af5207234755035e53b31 ===> Owner du contract. 
 
 Jean adresse : 0xe5F6bABf4600E5c5C2Ff3C6400e5f8c16A0BB7AB ===> King du 1er tour.
 
-ewe adresse :  0xc945d3B93b056507CB79a9DcD2D143EA736f75A8 ==> 1er joeur du tour suivant
+ewe adresse :  0xc945d3B93b056507CB79a9DcD2D143EA736f75A8 ==> 1er joueur du tour suivant
 
 TestNet : Rinkeby.
 ## Énoncer du jeu: 
@@ -19,14 +19,14 @@ king of the hill est un jeu où les joueurs doivent acquérir le contenu d'un po
 
 ## Les régles et conditions du jeu : 
 
-Le joueur qui envoi le double du pot actuel devient le King.
-A chaque fois qu' un joeur mise, la durée de la partie est renouvelée. 
+Le joueur qui envoie le double du pot actuel devient le King.
+A chaque fois qu' un joueur mise, la durée de la partie est renouvelée. 
 Si le King arrive à garder sa couronne pendant un certain nombre de blocs alors : 
   - 10% sont envoyés à l'owner du smart contract.
-  - il gagne 90% du rest du pot.
+  - Le King gagne 90% du reste du pot.
   - Le reste du pot servira pour le tour suivant. 
 Le King recoit alors ces gains une fois le tour suivant lancée. 
-Si le 1er joeur du tour suivant, envoie un surplus, alors il recoit automatiquement le surplus. 
+Si le 1er joueur du tour suivant, envoie un surplus, alors il reçoit automatiquement le surplus. 
 
 ## Explication de certaine partie du code : 
 ### `Le Constructor`: 
@@ -44,9 +44,9 @@ Lors du déploiement du contract, le owner devra définir le montant de la taxe 
 
 ### `Fonction ToBeTheKing`:
 Ce smart contract détient une fonction principale, qui regroupe presque toutes les règles du jeu.
-La fonction ToBeTheKing peut-être appelé par n'importe qui, tant qu'il respect 2 condition:
- - 1er condition: le joeur doit misé (envoyer)  double du pot (_bet) actuel.
- - 2eme condition: Ne peut miser le joeur qui est actuellement le King.  
+La fonction ToBeTheKing peut-être appelée par n'importe qui, tant qu'il respect 2 conditions:
+ - 1er condition: le joueur doit misé (envoyer)  double du pot (_bet) actuel.
+ - 2eme condition: Ne peut miser le joueur qui est actuellement le King.  
 
       function firstPlc(uint256 currentBet) public payable {
         require(
@@ -56,7 +56,7 @@ La fonction ToBeTheKing peut-être appelé par n'importe qui, tant qu'il respect
         require(msg.sender != _TheKing, "KingHill: you are alreday the king"); 
 
   
-Dans cette fonction, nous avons ensuite une condition If/else. Elle contient la condition pour remporter la partie. Si le block actuel - (moins) le numéro du block à laquelle où le dernier joeur est devenue king, est > (supérieur) au block final (le numéro du block à laquelle où le dernier joeur est devenue king + le nombre de block définit par le maitre du jeu(owner)); alors : 
+Dans cette fonction, nous avons ensuite une condition If/else. Elle contient la condition pour remporter la partie. Si le block actuel - (moins) le numéro du block à laquelle où le dernier joueur est devenue king, est > (supérieur) au block final (le numéro du block à laquelle où le dernier joueur est devenue king + le nombre de block définit par le maitre du jeu(owner)); alors : 
   
   -  Calcul le montant de la taxe (fee);
   - On retire le montant de la taxe du pot (_bet). 
@@ -72,13 +72,13 @@ Dans cette fonction, nous avons ensuite une condition If/else. Elle contient la 
  - On calcule le montant à envoyer au King (soit 90% de la balance; le reste pour le prochain tour);
  - On décremente les gains du vainqueur de la balance du jeu;
  - On décremente les gains du vainqueur de la balance du jeu
- - On envoie au king ces gains. 
+ - On envoie au King ces gains. 
     
     uint256 amountWinner = (_bet - ((_bet * 20) / 100)); 
     _bet -= amountWinner; 
     payable(_TheKing).sendValue(amountWinner); 
 
-- Calcul du surplus envoyer par le nouveau joeur; (msg.value = montant envoyer par le joeur qui lance le nouveau tour)
+- Calcul du surplus envoyé par le nouveau joueur; (msg.value = montant envoyer par le joueur qui lance le nouveau tour)
 - On incrémente le pot (_bet) du montant envoyer;
 - On décremente le pot (_bet) du surplus calculé précedement. 
 - On Renvoie le surplus à son propriétaire. 
@@ -89,7 +89,7 @@ Dans cette fonction, nous avons ensuite une condition If/else. Elle contient la 
     payable(msg.sender).sendValue(extra); 
     } 
 
-Tant que la partie (tour) n'est pas fini, alors on accepte tout parie. Et on incremente le pot (_bet) de la mise (msg.value) du joeur.
+Tant que la partie (tour) n'est pas fini, alors on accepte tout parie. Et on incremente le pot (_bet) de la mise (msg.value) du joueur.
 
     else {
             _bet += msg.value; // incremente la balance du jeu a chque envoie d'une mise.
@@ -103,7 +103,7 @@ Enfin, à chaque fois que la fonction est appélée, alors on met à jour, le no
 
 
 ### `Fonction WithdrawGain`: 
-Cette fonction permet au maitre du jeu (_owner) de retirer, lorsqu'il le désire, cest profit. 
+Cette fonction permet au maitre du jeu (_owner) de retirer, lorsqu'il le désire, ces profits. 
 
 
     function withdrawGain() public {
@@ -115,9 +115,9 @@ Cette fonction permet au maitre du jeu (_owner) de retirer, lorsqu'il le désire
 
 
 ### `Les Fonctions View`: 
-Les fonction view servent à lire des informations sur la blockchain. 
+Les fonctions view servent à lire des informations sur la blockchain. 
 
-La fonction tax permet de lire la tax actuel appliqué par le maitre du jeu (_owner), pour ce tour. 
+La fonction tax permet de lire la taxe actuel appliqué par le maitre du jeu (_owner), pour ce tour. 
 
     function tax() public view returns (uint256) {
         return _tax;
@@ -131,14 +131,14 @@ La Fonction _bet permet de lire la balance du pot (_bet), afin de connaitre le m
     }
 
 
-La Fonction TheKing permet de lire l'addresse du king (gagnant) du tour actuel.
+La Fonction TheKing permet de lire l'adresse du king (gagnant) du tour actuel.
 
     function TheKing() public view returns (address) {
         return _TheKing;
     }
 
 
-La fonction owner permet de lire l'addresse du maitre du jeu (_owner)
+La fonction owner permet de lire l'adresse du maitre du jeu (_owner)
 
     function owner() public view returns (address) {
         return _owner;
@@ -152,7 +152,7 @@ La fonction seeGains permet de lire la balance actuel du maitre du jeu (_owner)
     }
 
 
-La Fonction blockNumber permet de lire le numéro du block en cour. 
+La fonction blockNumber permet de lire le numéro du block en cour. 
 
     function blockNumber() public view returns (uint256) {
         return block.number;
