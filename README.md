@@ -12,6 +12,7 @@ Jean adresse : 0xe5F6bABf4600E5c5C2Ff3C6400e5f8c16A0BB7AB ===> King du 1er tour.
 
 ewe adresse :  0xc945d3B93b056507CB79a9DcD2D143EA736f75A8 ==> 1er joeur du tour suivant
 
+TestNet : Rinkeby.
 ## Énoncer du jeu: 
 
 king of the hill est un jeu où les joueurs doivent acquérir le contenu d'un pot qui contient de l'ether, en envoyant le double de ce que contient le pot au moment de la transaction, dans le temps impartit. La limitte de temps  est définie au préalable par le maitre du jeu.  Une fois le temps arrivée à son terme, le Roi (vainqueur) reçoit le pot une fois le tour suivant (partie) lancée. 
