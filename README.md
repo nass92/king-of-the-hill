@@ -160,8 +160,9 @@ La fonction blockNumber permet de lire le numéro du block en cour.
 
 
 La fonction TimeOut permet de lire si le tour est fini (true) ou toujours en cour (false)
+
     function TimeOut() public view returns (bool) {
-        return (block.number - _currentBlock) > _finalBlock ? true : false;
+      return (block.number - _currentBlock) > _finalBlock ? true : false;
     }
 }
 
