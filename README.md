@@ -2,7 +2,7 @@
 ![King](King.jpg)
 
               
-L'adresse du contract : 0x98B384C8971c85c1557eC83B9F585968aAD3DB42 
+L'adresse du contract : 0x98B384C8971c85c1557eC83B9F585968aAD3DB42
 
 Bob adresse : 0xe5F6bABf4600E5c5C2Ff3C6400e5f8c16A0BB7AB  ===> 1er joeur a jouer aux 1er tour. 
 
