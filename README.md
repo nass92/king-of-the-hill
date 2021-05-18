@@ -1,5 +1,5 @@
 # King-of-the-Hill Game
-![King](King.png)
+![King](King.jpg)
 
               
 l'adresse du contract : 0x98B384C8971c85c1557eC83B9F585968aAD3DB42 
