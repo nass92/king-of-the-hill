@@ -15,6 +15,7 @@ contract KingHill {
     uint256 private _finalBlock;
     uint256 private _currentBlock;
     uint256 private _gainOwner;
+    uint256 private _amountWinner;
 
     constructor(uint256 tax_, uint256 finalBlock_) payable {
         _owner = msg.sender;
@@ -39,13 +40,17 @@ contract KingHill {
         // Lorsque le  final-block est atteint alors le roi ( joeur à la 1er place) à gagner
 
         if ((block.number - _currentBlock) > _finalBlock) {
-            uint256 fee = (_bet * _tax) / 100;
-            _bet -= fee;
-            _gainOwner += fee;
-
-            uint256 amountWinner = (_bet - ((_bet * 10) / 100));
-            _bet -= amountWinner;
-            payable(_TheKing).sendValue(amountWinner);
+            if (
+                ((block.number - _currentBlock) > _finalBlock &&
+                    (block.number - _currentBlock) < _finalBlock + 5)
+            ) {
+                uint256 fee = (_bet * _tax) / 100; // calcul le mmontant de la taxe
+                _bet -= fee;
+                _gainOwner += fee;
+                _amountWinner = (_bet - ((_bet * 10) / 100));
+                _bet -= _amountWinner;
+                payable(_TheKing).sendValue(_amountWinner);
+            }
             emit Winner(_TheKing, amountWinner);
 
             uint256 extra = msg.value - (_bet * 2);
@@ -59,6 +64,24 @@ contract KingHill {
         _TheKing = msg.sender;
         _currentBlock = block.number;
         emit King(msg.sender, msg.value);
+    }
+
+    // fonction qui permet au King ses gains, si aucun tour n'est lance apres 5 block
+    function KingWithdraw() public payable {
+        require(
+            _TheKing == msg.sender,
+            "KingHill: Only the King can withdrawGain."
+        );
+        require(
+            (block.number - _currentBlock) > (_finalBlock + 5),
+            "KingHill: You can widthraw your gain after 5 bloch if nobody play an another game."
+        );
+        uint256 fee = (_bet * _tax) / 100; // calcul le mmontant de la taxe
+        _bet -= fee;
+        _gainOwner += fee;
+        _amountWinner = (_bet - ((_bet * 10) / 100));
+        _bet -= _amountWinner;
+        payable(_TheKing).sendValue(_amountWinner);
     }
 
     ///// cette fonction permet de recuperer les fonds du contract à une addresse indiqué. elle est utile lors de test de smart contract afin de ne pas perdre les fond en cas d'echec du contract.
