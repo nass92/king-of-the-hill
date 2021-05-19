@@ -12,6 +12,17 @@ Jean adresse : 0xe5F6bABf4600E5c5C2Ff3C6400e5f8c16A0BB7AB ===> King du 1er tour.
 
 ewe adresse :  0xc945d3B93b056507CB79a9DcD2D143EA736f75A8 ==> 1er joueur du tour suivant
 
+2eme adresse avec la fonction KingWithdraw: 
+
+L'adresse du contract : 0x2e5FAcd771A9131FE08D2bA88A31F285588BCd9f
+
+Bob adresse : 0xe5F6bABf4600E5c5C2Ff3C6400e5f8c16A0BB7AB  ===> Owner du contract 
+
+Alice adresse : 0xc0f851203ac00f85893Af5207234755035e53b31 ===> King du 1er tour. 
+
+
+
+
 TestNet : Rinkeby.
 ## Énoncer du jeu : 
 
